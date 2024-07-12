@@ -1,0 +1,60 @@
+package challenge;
+
+import java.util.Scanner;
+
+public class Dsa {
+
+	public static void main(String[] args) throws Exception {		
+          Scanner sc=new Scanner(System.in);
+          int i,j,k,l,n,m;
+          System.out.println("Enter array \"Row\" Range: ");
+          n = sc.nextInt();
+          System.out.println("Enter array  \"column\" Range: ");
+          m = sc.nextInt();
+          int[][] arr= new int[n][m];               
+          try {
+          System.out.println("Enter "+(n*m)+" values: "); 
+          for(i=0;i<n;i++) {
+        	  for(j=0;j<m;j++) {
+        		  arr[i][j]=sc.nextInt();
+        		  System.out.print("  "+ arr[i][j]);
+        	  }
+        	  System.out.println();
+            }       
+          for(i=0;i<n;i++) {
+        	  for(j=0;j<m;j++) {
+        	 	  if(arr[i][j]==0) {
+        	 		  for(k=i;k<=i;k++ ) {
+        	 			  for(l=0;l<m;l++) { 
+        	 				  if(arr[k][l]!=0)
+        	 				  	arr[k][l]=-1;
+        	 			  }
+        	 		  } 
+        	 		  for(k=0;k<n;k++) {
+        	 			  for(l=j;l<=j;l++) {
+        	 				  if(arr[k][l]!=0)
+        	 				   arr[k][l]=-1;
+        	 			  }
+        	 		  }
+        	 	  }
+        	  }
+          } 
+          System.out.println("Your Output Values: ");
+            for(i=0;i<n;i++) {
+        	  for(j=0;j<m;j++) {
+        	     if(arr[i][j]==-1)
+        			  arr[i][j]=0;
+        	     System.out.print("  "+ arr[i][j]);
+        	  }
+        	  System.out.println(); 
+            }
+          } 
+          catch(ArrayIndexOutOfBoundsException ae) {
+        	  System.out.println(ae);
+          }
+          catch(Exception e) {
+        	  System.out.println(e);
+          }
+          sc.close();
+	}  
+}
